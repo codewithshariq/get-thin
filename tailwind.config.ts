@@ -10,6 +10,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        figtree: ["var(--font-figtree)"],
+        lora: ["var(--font-lora)"],
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
