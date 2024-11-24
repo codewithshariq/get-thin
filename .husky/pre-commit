@@ -1,0 +1,10 @@
+#!/bin/sh
+echo "🔧 Running Prettier and ESLint with lint-staged..."
+pnpx lint-staged
+
+if [ $? -eq 0 ]; then
+  echo "✅ Pre-commit checks passed! Files are properly formatted and linted."
+else
+  echo "❌ Pre-commit checks failed! Fix the issues and try again."
+  exit 1
+fi
