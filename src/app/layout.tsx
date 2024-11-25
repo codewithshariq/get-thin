@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Lora, Figtree } from "next/font/google";
+import { Footer } from "./components/footer";
+import { Header } from "./components/header";
 
 const lora = Lora({
   subsets: ["latin"],
@@ -25,8 +27,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${figtree.className} ${lora.variable} antialiased`}>
+      <body
+        className={`${figtree.className} ${lora.variable} antialiased bg-background flex flex-col min-h-screen`}
+      >
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

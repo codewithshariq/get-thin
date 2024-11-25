@@ -18,7 +18,9 @@ export function Footer() {
       <div className="flex items-center justify-center gap-4 text-xs text-primary font-normal col-span-2 text-center">
         <Link href="#">Customer Support Centre</Link>
         <Link href="#">Privacy Policy</Link>
-        <a href="tel:+18885052996">Call us: (888) 505-2996</a>
+        <a href="tel:+18885052996">
+          Call us: <span className="block sm:inline w-max">(888) 505-2996</span>
+        </a>
         <Link href="#">Terms of Service</Link>
       </div>
     </div>
