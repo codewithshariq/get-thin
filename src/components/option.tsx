@@ -2,18 +2,19 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React from "react";
 
-interface OptionProps {
+interface OptionProps extends React.HTMLAttributes<HTMLDivElement> {
   isSelected: boolean;
   optionText: string;
 }
 
-export function Option({ isSelected, optionText }: OptionProps) {
+export function Option({ isSelected, optionText, ...restProps }: OptionProps) {
   return (
     <div
       className={cn(
         "flex p-6 items-center rounded-lg border border-solid cursor-pointer",
         isSelected ? "bg-primary border-primary" : "bg-white",
       )}
+      {...restProps}
     >
       <div className="flex gap-6 items-center">
         {!isSelected && (

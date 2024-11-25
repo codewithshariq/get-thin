@@ -1,11 +1,15 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import { Progress } from "./ui/progress";
 import ArrowIcon from "@/../public/arrow-icon.svg";
+import useFormStore from "@/store/form-store";
+interface StepIndicatorProps {
+  totalSteps: number;
+}
 
-export function StepIndicator() {
-  const totalSteps = 5;
-  const currentStep = 1;
+export function StepIndicator({ totalSteps }: StepIndicatorProps) {
+  const currentStep = useFormStore((state) => state.currentStep);
 
   const progress = ((currentStep - 1) / totalSteps) * 100;
 
