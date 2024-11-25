@@ -5,9 +5,9 @@ import ArrowIcon from "@/../public/arrow-icon.svg";
 
 export function StepIndicator() {
   const totalSteps = 5;
-  const currentStep = 2;
+  const currentStep = 1;
 
-  const progress = (currentStep / totalSteps) * 100;
+  const progress = ((currentStep - 1) / totalSteps) * 100;
 
   return (
     <div className="flex items-center w-full justify-center mt-6 md:mt-10 gap-6">

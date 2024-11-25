@@ -8,13 +8,13 @@ interface QuestionProps {
 
 export function Question({ children, className }: QuestionProps) {
   return (
-    <p
+    <h2
       className={cn(
         "text-[2rem] leading-10 font-semibold text-primary text-center font-lora max-w-[22.875rem] md:max-w-[35ch] self-center mb-10 mt-6",
         className,
       )}
     >
       {children}
-    </p>
+    </h2>
   );
 }
