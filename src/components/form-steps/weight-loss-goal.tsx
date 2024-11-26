@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import { Question } from "../question";
 import { Option } from "../option";
 import useFormStore from "@/store/form-store";
+import { FormType } from "../quiz-form";
 
 const OPTIONS = [
   "Lose 1-20 lbs for good",
@@ -15,18 +17,26 @@ const OPTIONS = [
   "Haven’t decided",
 ];
 
-export function WeightLossGoal() {
-  const { setFormState, formState } = useFormStore((state) => state);
+interface WeightLossGoalProps {
+  form: FormType;
+}
+
+export function WeightLossGoal({ form }: WeightLossGoalProps) {
+  const { setCurrentStep, currentStep } = useFormStore((state) => state);
+
+  const { setValue, getValues } = form;
 
   const handleSelection = (option: string) => {
-    setFormState({ weightLossGoal: option });
+    setValue("weightLossGoal", option);
+    setCurrentStep(currentStep + 1);
   };
+
   return (
-    <>
+    <div className="animate-fadeIn flex flex-col w-full items-center">
       <Question>What is your weight loss goal?</Question>
-      <div className="flex flex-col gap-4 max-w-[47.125rem] self-center w-full">
+      <div className="flex flex-col gap-4 self-center w-full">
         {OPTIONS.map((option, index) => {
-          const isSelected = formState.weightLossGoal === option;
+          const isSelected = getValues("weightLossGoal") === option;
 
           return (
             <Option
@@ -38,6 +48,6 @@ export function WeightLossGoal() {
           );
         })}
       </div>
-    </>
+    </div>
   );
 }
