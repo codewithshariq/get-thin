@@ -56,7 +56,7 @@ export default function BMICalculator({ form }: BMICalculatorProps) {
                     type="text"
                     max={8}
                     min={0}
-                    placeholder="Enter feet (0-8)"
+                    placeholder="Feet (0-8)"
                     {...field}
                     onChange={(e) => {
                       const value = e.target.value;
@@ -83,7 +83,7 @@ export default function BMICalculator({ form }: BMICalculatorProps) {
                     type="text"
                     max={11}
                     min={0}
-                    placeholder="Enter inches (0-11)"
+                    placeholder="Inches (0-11)"
                     {...field}
                     onChange={(e) => {
                       const value = e.target.value;
