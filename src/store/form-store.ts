@@ -1,19 +1,21 @@
+"use client";
+import { formSchema } from "@/components/quiz-form";
+import { z } from "zod";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-interface FormState {
-  weightLossGoal: string;
-}
-
 interface Store {
-  formState: FormState;
+  formState: z.infer<typeof formSchema>;
   currentStep: number;
-  setFormState: (state: FormState) => void;
+  setFormState: (state: z.infer<typeof formSchema>) => void;
   setCurrentStep: (step: number) => void;
   clearState: () => void;
 }
 
-const initialState: FormState = {
+const initialState: z.infer<typeof formSchema> = {
+  feet: "",
+  inches: "",
+  weightLbs: "",
   weightLossGoal: "",
 };
 
