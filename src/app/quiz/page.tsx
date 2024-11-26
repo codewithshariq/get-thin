@@ -5,7 +5,7 @@ import { QuizForm } from "@/components/quiz-form";
 export default function QuizPage() {
   return (
     <div className="flex flex-col h-full flex-1 p-5">
-      <StepIndicator totalSteps={3} />
+      <StepIndicator totalSteps={2} />
       <QuizForm />
     </div>
   );
