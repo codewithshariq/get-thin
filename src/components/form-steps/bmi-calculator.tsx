@@ -53,16 +53,17 @@ export default function BMICalculator({ form }: BMICalculatorProps) {
                 <FormLabel>Feet</FormLabel>
                 <FormControl>
                   <Input
-                    type="number"
+                    type="text"
                     max={8}
                     min={0}
-                    placeholder="Feet"
+                    placeholder="Enter feet (0-8)"
                     {...field}
                     onChange={(e) => {
                       const value = e.target.value;
 
                       if (value === "" || /^[0-8]$/.test(value)) {
                         field.onChange(value);
+                        trigger(["feet"]);
                       }
                     }}
                   />
@@ -79,16 +80,17 @@ export default function BMICalculator({ form }: BMICalculatorProps) {
                 <FormLabel>Inches</FormLabel>
                 <FormControl>
                   <Input
-                    type="number"
+                    type="text"
                     max={11}
                     min={0}
-                    placeholder="Inches"
+                    placeholder="Enter inches (0-11)"
                     {...field}
                     onChange={(e) => {
                       const value = e.target.value;
 
                       if (value === "" || /^(1[01]|[0-9])?$/.test(value)) {
                         field.onChange(e);
+                        trigger(["inches"]);
                       }
                     }}
                   />
@@ -106,7 +108,7 @@ export default function BMICalculator({ form }: BMICalculatorProps) {
               <FormLabel>Weight (in lbs)</FormLabel>
               <FormControl>
                 <Input
-                  type="number"
+                  type="text"
                   max={1000}
                   min={0}
                   placeholder="Weight (in lbs)"
@@ -119,6 +121,7 @@ export default function BMICalculator({ form }: BMICalculatorProps) {
                       (Number(value) >= 0 && Number(value) <= 1000)
                     ) {
                       field.onChange(e);
+                      trigger(["weightLbs"]);
                     }
                   }}
                 />
