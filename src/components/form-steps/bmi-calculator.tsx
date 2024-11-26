@@ -58,6 +58,13 @@ export default function BMICalculator({ form }: BMICalculatorProps) {
                     min={0}
                     placeholder="Feet"
                     {...field}
+                    onChange={(e) => {
+                      const value = e.target.value;
+
+                      if (value === "" || /^[0-8]$/.test(value)) {
+                        field.onChange(value);
+                      }
+                    }}
                   />
                 </FormControl>
                 <FormMessage />
@@ -73,10 +80,17 @@ export default function BMICalculator({ form }: BMICalculatorProps) {
                 <FormControl>
                   <Input
                     type="number"
-                    max={8}
+                    max={11}
                     min={0}
                     placeholder="Inches"
                     {...field}
+                    onChange={(e) => {
+                      const value = e.target.value;
+
+                      if (value === "" || /^(1[01]|[0-9])?$/.test(value)) {
+                        field.onChange(e);
+                      }
+                    }}
                   />
                 </FormControl>
                 <FormMessage />
@@ -97,6 +111,16 @@ export default function BMICalculator({ form }: BMICalculatorProps) {
                   min={0}
                   placeholder="Weight (in lbs)"
                   {...field}
+                  onChange={(e) => {
+                    const value = e.target.value;
+
+                    if (
+                      value === "" ||
+                      (Number(value) >= 0 && Number(value) <= 1000)
+                    ) {
+                      field.onChange(e);
+                    }
+                  }}
                 />
               </FormControl>
               <FormMessage />
