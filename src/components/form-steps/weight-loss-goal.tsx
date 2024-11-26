@@ -32,7 +32,7 @@ export function WeightLossGoal({ form }: WeightLossGoalProps) {
   };
 
   return (
-    <>
+    <div className="animate-fadeIn flex flex-col w-full items-center">
       <Question>What is your weight loss goal?</Question>
       <div className="flex flex-col gap-4 self-center w-full">
         {OPTIONS.map((option, index) => {
@@ -48,6 +48,6 @@ export function WeightLossGoal({ form }: WeightLossGoalProps) {
           );
         })}
       </div>
-    </>
+    </div>
   );
 }

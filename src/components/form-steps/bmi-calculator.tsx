@@ -32,7 +32,7 @@ export default function BMICalculator({ form }: BMICalculatorProps) {
   );
 
   return (
-    <>
+    <div className="animate-fadeIn flex flex-col w-full items-center">
       <Question>What is your current height & weight?</Question>
       <div className="flex flex-col w-full gap-5 mb-6 lg:mb-12 max-w-[29.375rem]">
         <div className="flex flex-col w-full items-center">
@@ -116,6 +116,6 @@ export default function BMICalculator({ form }: BMICalculatorProps) {
         Next
         <ArrowIcon className="relative w-[18px] h-[18px] cursor-pointer transform scale-x-[-1]" />
       </Button>
-    </>
+    </div>
   );
 }
